@@ -2,24 +2,21 @@ package rlp.pensionmanager.model;
 
 import rlp.pensionmanager.model.dto.PensionDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "pension")
 public class Pension {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", updatable = false, nullable = false)
     private long id;
+
+    public Pension() {
+    }
 
     private int idAbbreviation;
     private LocalDate birthday;
@@ -37,6 +34,78 @@ public class Pension {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private OfficialCategory officialCategory;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getIdAbbreviation() {
+        return idAbbreviation;
+    }
+
+    public void setIdAbbreviation(int idAbbreviation) {
+        this.idAbbreviation = idAbbreviation;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public LocalDate getJustificationOfficialRelationship() {
+        return justificationOfficialRelationship;
+    }
+
+    public void setJustificationOfficialRelationship(LocalDate justificationOfficialRelationship) {
+        this.justificationOfficialRelationship = justificationOfficialRelationship;
+    }
+
+    public LocalDate getFirstRetirementDay() {
+        return firstRetirementDay;
+    }
+
+    public void setFirstRetirementDay(LocalDate firstRetirementDay) {
+        this.firstRetirementDay = firstRetirementDay;
+    }
+
+    public List<DutyHour> getDutyHours() {
+        return dutyHours;
+    }
+
+    public void setDutyHours(List<DutyHour> dutyHours) {
+        this.dutyHours = dutyHours;
+    }
+
+    public RetirementReason getRetirementReason() {
+        return retirementReason;
+    }
+
+    public void setRetirementReason(RetirementReason retirementReason) {
+        this.retirementReason = retirementReason;
+    }
+
+    public FamilyAllowance getFamilyAllowance() {
+        return familyAllowance;
+    }
+
+    public void setFamilyAllowance(FamilyAllowance familyAllowance) {
+        this.familyAllowance = familyAllowance;
+    }
+
+    public OfficialCategory getOfficialCategory() {
+        return officialCategory;
+    }
+
+    public void setOfficialCategory(OfficialCategory officialCategory) {
+        this.officialCategory = officialCategory;
+    }
 
     public void addDutyHour(DutyHour dutyHour) {
         dutyHours.add(dutyHour);

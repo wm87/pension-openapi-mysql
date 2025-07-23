@@ -1,21 +1,18 @@
 package rlp.pensionmanager.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import rlp.pensionmanager.model.dto.OfficialTimeKeyDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name = "officialtimekey")
 public class OfficialTimeKey {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private long id;
+    @Column(name = "id", updatable = false, nullable = false)
+    private int id;
 
     private int keyOTK;
     private String name;
@@ -25,6 +22,38 @@ public class OfficialTimeKey {
     private List<OfficialTimeKey> officialTimeKeys = new ArrayList<>();
 
     public OfficialTimeKey() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getKeyOTK() {
+        return keyOTK;
+    }
+
+    public void setKeyOTK(int keyOTK) {
+        this.keyOTK = keyOTK;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<OfficialTimeKey> getOfficialTimeKeys() {
+        return officialTimeKeys;
+    }
+
+    public void setOfficialTimeKeys(List<OfficialTimeKey> officialTimeKeys) {
+        this.officialTimeKeys = officialTimeKeys;
     }
 
     public OfficialTimeKey(String name) {

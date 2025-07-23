@@ -1,5 +1,6 @@
 package rlp.pensionmanager.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import rlp.pensionmanager.model.FamilyAllowance;
 import rlp.pensionmanager.model.dto.FamilyAllowanceDto;
 import rlp.pensionmanager.service.FamilyAllowanceService;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@SecurityRequirement(name = "javainuseapi")
 @RequestMapping("/api/familyallowance")
 public class FamilyAllowanceController {
 

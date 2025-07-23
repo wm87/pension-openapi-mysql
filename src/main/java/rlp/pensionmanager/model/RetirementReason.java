@@ -1,13 +1,11 @@
 package rlp.pensionmanager.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import rlp.pensionmanager.model.dto.RetirementReasonDto;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name = "retirementreason")
 public class RetirementReason {
@@ -17,6 +15,30 @@ public class RetirementReason {
     private long id;
 
     private String name;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<RetirementReason> getRetirementReasons() {
+        return retirementReasons;
+    }
+
+    public void setRetirementReasons(List<RetirementReason> retirementReasons) {
+        this.retirementReasons = retirementReasons;
+    }
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "retirementReason_id",referencedColumnName = "id")

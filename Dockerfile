@@ -1,4 +1,4 @@
-FROM openjdk:22
+FROM openjdk:23
 EXPOSE 8090
 
 WORKDIR /app

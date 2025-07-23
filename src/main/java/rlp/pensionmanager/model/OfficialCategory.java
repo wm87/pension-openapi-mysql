@@ -2,12 +2,10 @@ package rlp.pensionmanager.model;
 
 import rlp.pensionmanager.model.dto.OfficialCategoryDto;
 import jakarta.persistence.*;
-import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name = "official_category")
 public class OfficialCategory{
@@ -23,6 +21,30 @@ public class OfficialCategory{
     private List<OfficialCategory> officialCategories = new ArrayList<>();
 
     public OfficialCategory() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<OfficialCategory> getOfficialCategories() {
+        return officialCategories;
+    }
+
+    public void setOfficialCategories(List<OfficialCategory> officialCategories) {
+        this.officialCategories = officialCategories;
     }
 
     public OfficialCategory(String name) {

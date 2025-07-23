@@ -6,7 +6,9 @@ Ein Java/Spring Boot basierter RESTful Webservice zur Berechnung und Verwaltung 
 
 * REST API zur Verwaltung von Pensionsinformationen
 * Datenbankintegration mit JPA (H2/MySQL)
-* Dokumentation via Swagger UI
+* 🔐 HTTP Basic Authentication
+  * **user**: javainuse
+  * **password**: javainuse
 * Import von Initialdaten via `curl`
 
 ---
@@ -15,7 +17,7 @@ Ein Java/Spring Boot basierter RESTful Webservice zur Berechnung und Verwaltung 
 
 ### Voraussetzungen
 
-* Java 22
+* Java 23
 * Maven 3.9+
 
 ### Build und Start (lokal)
@@ -102,43 +104,27 @@ Weitere `curl`-Beispiele zur Befüllung aller Entitäten findest du im Abschnitt
 
 ## ⚙️ Technologiestack
 
-* **Java 22**
+* **Java 23**
 * **Spring Boot 3.3.2**
 * **Spring Data JPA**
 * **MySQL/H2**
 * **Swagger / OpenAPI (springdoc)**
-* **Lombok**
 
 ---
 
 ## 🖊️ Hinweise
 
-* **Java-Version**: Beachte Kompatibilitätsprobleme zwischen **Lombok** und **Java 24**. Verwende daher **Java 22**.
+* **Java-Version**: Beachte Kompatibilitätsprobleme zwischen **Lombok** und **Java 24**
 * **Swagger UI**: automatisiert generiert via `springdoc-openapi`
 * **H2-Konsole** für Testdatenbank ggf. unter `http://localhost:8090/h2-console` verfügbar
-* **Konfiguration** erfolgt über `application.properties` / `application.yml`
+* **DB-Konfiguration** erfolgt über `application.properties` / `application.yml`
 
 ---
 
-## 📦 Build Info (pom.xml)
+## Auszug Pension API
 
-Projekt basiert auf folgendem `pom.xml`:
 
-```xml
-<groupId>rlp.pension</groupId>
-<artifactId>pension</artifactId>
-<version>v2</version>
-<description>Spring data jpa</description>
-<dependencies>
-  spring-boot-starter-web,
-  spring-boot-starter-data-jpa,
-  spring-boot-starter-validation,
-  mysql-connector-j,
-  h2,
-  lombok,
-  springdoc-openapi-starter-webmvc-ui
-</dependencies>
-```
+![PensionAPI](./screen_api.png "pension_api")
 
 ---
 

@@ -1,5 +1,6 @@
 package rlp.pensionmanager.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@SecurityRequirement(name = "javainuseapi")
 @RequestMapping("/api/retirementreason")
 public class RetirementReasonController {
 

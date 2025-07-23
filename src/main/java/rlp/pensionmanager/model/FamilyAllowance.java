@@ -2,11 +2,9 @@ package rlp.pensionmanager.model;
 
 import rlp.pensionmanager.model.dto.FamilyAllowanceDto;
 import jakarta.persistence.*;
-import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 @Entity
 @Table(name = "familyallowance")
 public class FamilyAllowance {
@@ -22,6 +20,30 @@ public class FamilyAllowance {
     private List<FamilyAllowance> familyAllowances = new ArrayList<>();
 
     public FamilyAllowance() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<FamilyAllowance> getFamilyAllowances() {
+        return familyAllowances;
+    }
+
+    public void setFamilyAllowances(List<FamilyAllowance> familyAllowances) {
+        this.familyAllowances = familyAllowances;
     }
 
     public FamilyAllowance(String name) {
